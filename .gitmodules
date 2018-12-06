@@ -1,0 +1,3 @@
+[submodule "dependencies/github.com/pivotal-cf/bbr-pcf-pipeline-tasks"]
+	path = dependencies/github.com/pivotal-cf/bbr-pcf-pipeline-tasks
+	url = https://github.com/pivotal-cf/bbr-pcf-pipeline-tasks
