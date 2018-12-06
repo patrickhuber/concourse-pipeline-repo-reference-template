@@ -117,5 +117,6 @@ In this situation, you wouldn't need a pipeline.yml file because you would be br
 fly -t concourse \
   set-pipeline \
   -p backup-pipeline \
-  -c <( cat $DIR/../depenencies/github.com/pivotal-cf/examples/pas-pipeline.yml | yaml_patch -o $DIR/patches/minio.yml)
+  -c <( cat $DIR/../depenencies/github.com/pivotal-cf/examples/pas-pipeline.yml \
+        | yaml_patch -o $DIR/patches/minio.yml)
 ```
