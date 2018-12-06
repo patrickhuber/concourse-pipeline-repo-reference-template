@@ -65,6 +65,9 @@ git checkout c7955a4
 
 ### pipelines folder
 
+
+#### pipelines originating from scratch
+
 The pipelines folder contains a sub folder for each pipeline. The pipeline folder contains a `pipeline.yml` file that contains the pipeline yml for the pipeline. 
 
 If any tasks are needed that are specific to that pipeline, they are stored in the tasks folder. Otherwise they are stored in the repo root tasks folder. 
@@ -102,4 +105,17 @@ An example pipelines folder could look like this:
     │       └ uat
     │           └ params.yml
     └ set-pipeline.sh
+```
+
+#### Pipeline originating in a depenency
+
+If a pipeline originates in a depenency, use a tool like yml patch to bring in the pipeline from source and use operations files to modify the pipeline as desired. 
+
+In this situation, you wouldn't need a pipeline.yml file because you would be brining it in from a depenency. 
+
+```
+fly -t concourse \
+  set-pipeline \
+  -p backup-pipeline \
+  -c <( cat $DIR/../depenencies/github.com/pivotal-cf/examples/pas-pipeline.yml | yaml_patch -o $DIR/patches/minio.yml)
 ```
