@@ -63,6 +63,15 @@ git fetch
 git checkout c7955a4
 ```
 
+> remove a dependency
+
+```
+rm -rf depenencies/github.com/pivotal-cf/bbr-pcf-pipeline-tasks
+git submodule deinit -f -- depenencies/github.com/pivotal-cf/bbr-pcf-pipeline-tasks
+rm -rf .git/modules/depenencies/github.com/pivotal-cf/bbr-pcf-pipeline-tasks
+git rm -rf depenencies/github.com/pivotal-cf/bbr-pcf-pipeline-tasks
+```
+
 ### pipelines folder
 
 
